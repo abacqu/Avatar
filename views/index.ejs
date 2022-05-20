@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Avatar App</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <h1>Earth index page</h1>
+    <ul>
+      <% for(var i = 0; i < characters.length; i++){ %>
+      <li>
+        The <a href="/earth/<%=i%>"><%=characters[i].name; %></a> is from
+        <%=characters[i].town; %>. Here is a quote <%=characters[i].quote; %> <% } %>
+        <!--  ADD DELETE FORM HERE-->
+        <form action="/earth/<%=i; %>?_method=DELETE" method="POST">
+          <input type="submit" value="DELETE" />
+        </form>
+        <!-- Add edit link here  -->
+        <a href="/earth/<%=i; %>/edit">Edit</a>
+      </li>
+      <% } %>
+    </ul>
+    <nav>
+      <a href="/earth/new">Create a New Character</a>
+    </nav>
+  </body>
+</html>
